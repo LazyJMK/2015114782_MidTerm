@@ -1,0 +1,292 @@
+<!DOCTYPE html> 
+<html lang="ko"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>오늘은 또 뭘 먹어야 잘 먹었다고 소문이 날까</title> 
+        <link rel="stylesheet" href="css1.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
+        <script>
+            var imgArray = new Array();
+            var num = 20;
+            for(var i = 1 ; i <= 20 ; i++){
+                imgArray[i] = "./foodImg/"+i+".jpeg";
+            }
+            function showImage(){
+                var imgNum = Math.floor(Math.random()*20 + 1);
+                var obj = document.getElementById("showimg");
+                obj.src = imgArray[imgNum];
+            }
+            $(document).ready(function(){
+                $("#recipe").click(function(){
+                    var foodName = $(this).parents('#f_name','li').text();
+                    foodName = foodName.replace("레시피","");
+                    foodName = foodName.replace("배달","");
+                    foodName = foodName.trim();
+                    var foodRec = $("#"+foodName).html();
+                    var imgSrc = "./foodImg/"+foodName+".jpeg";
+                    imgSrc = imgSrc.trim();
+                    $("#food").html(foodName+" 레시피");
+                    $("#rec").html(foodRec);
+                    $("#f_img").attr("src",imgSrc);
+                    $("#popup").fadeIn(300);
+                });
+                $("#popup").click(function(){
+                    $("#popup").fadeOut(300);
+                });
+            });
+        </script> 
+    </head> 
+    <body onload="showImage()">
+        <div id="total">
+        <header>
+            <h1>오늘은 또 뭘 먹어야 잘 먹었다고 소문이 날까</h1>
+        </header> 
+        <ul class="menu">
+            <li>
+              <a href="#">한식</a>
+              <ul class="submenu">
+                <li id = "f_name"><a href="#">갈비찜</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">국밥</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">낙곱새</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">냉면</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">닭갈비</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">부대찌개</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">삼겹살</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">제육볶음</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">찜닭</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">치킨</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">된장찌개</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">김치찌개</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">양식</a>
+              <ul class="submenu">
+                <li><a href="#">샐러드</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">스테이크</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li id = "f_name"><a href="#">파스타</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">피자</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">분식</a>
+              <ul class="submenu">
+                <li><a href="#">떡볶이</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">잔치국수</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">칼국수</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">김밥</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">중식</a>
+              <ul class="submenu">
+                <li><a href="#">짬뽕</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">볶음밥</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">고추잡채</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">탕수육</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">멘보샤</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">해물누룽지탕</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">동파육</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">일식</a>
+              <ul class="submenu">
+                <li><a href="#">돈까스</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">회</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">초밥</a>
+                    <ul class = "minor">
+                        <li id = "recipe"><a href="#">레시피</a></li>
+                        <li><a href="#">배달</a></li>
+                    </ul>
+                </li>
+              </ul>
+            </li>
+        </ul>
+            <div id="imgBox">
+                <li style="font-size: 30px; text-align: center; color:seagreen">오늘의 추천</li>
+                <li><img id = "showimg"></li> 
+            </div>
+            <div id="popup">
+                <div id="popmenu">
+                    <li id="food"><b>안녕하세요</b></li>
+                    <div><img id = "f_img" src = "1.jpeg"></div>
+                    <ul id="rec"></ul>
+                </div>
+            </div>
+        </div>
+        <div id = "memo">
+            <ul id="갈비찜">
+                <li>
+                        1. 갈비 1kg의 핏물을 1시간쯤 빼주기
+                    <br>2. 양념 : 설탕 1/2컵, 맛술 1/2컵, 물 1컵, 진간장 1컵, 다진마늘 2큰술, 생강 1/2큰술, 참기름 2큰술, 대파 1대 다져서 설탕이 녹을 때까지 섞어주기
+                    <br>3. 핏물을 빼둔 갈비와 만들어둔 양념을 냄비에 넣고 갈비가 잠길 정도의 물을 붓고 센불에서 끓이기
+                    <br>4. 갈비와 양념이 끓을 동안 당근 양파 감자 등 원하는 채소를 손질
+                    <br>5. 갈비를 1시간 정도 끓인 후 손질한 야채를 넣고 감자와 당근이 다 익을때까지 계속 끓이기
+                    <br>6. 감자와 당근을 젓가락으로 찔러봤을때 걸리는 부분이 없이 잘 들어가면 다 익은것
+                    <br>7. 완성된 갈비찜을 접시에 담고 통깨를 뿌려 마무리
+                </li>
+            </ul>
+            <ul id="파스타">
+                <li>
+                        1. 파스타 면을 삶을 냄비에 물을 충분히 넣고 소금 약간을 넣은 뒤 끓인다
+                    <br>2. 물이 끓어오르면 파스타 면을 500원짜리 동전 하나정도 쥐어서 냄비에 펼쳐서 넣은 뒤 약 7분가량 삶는다
+                    <br>3. 파스타 면이 삶아질 동안 원하는 야채를 손질한다(마늘, 양파는 꼭 넣는것을 추천)
+                    <br>4. 면이 거의 다 삶아졌을 타이밍에 다른 화구에 프라이팬을 올리고 올리브유를 두른뒤 마늘을 넣고 불을 중불로 켠다
+                    <br>5. 마늘이 살짝 볶아지면 다른 야채들을 넣고 볶아준다
+                    <br>6. 야채들의 숨이 어느정도 죽으면 면을 삶고 있던 냄비에서 면수를 반국자 정도 떠서 프라이팬에 넣고 토마토 소스도 넣는다(혹시나 해산물을 넣는다면 소스를 넣고 그 뒤에 넣어주면 된다)
+                    <br>7. 7분동안 삶은 면을 프라이팬에 옮겨담고 잘 섞어가며 2분가량 볶아준다
+                    <br>8. 파스타를 파스타볼에 옮겨담고 파슬리나 바질이 있다면 적당히 올려준다
+                </li>
+            </ul>
+        </div>
+        
+        </body> 
+        </html>
+
